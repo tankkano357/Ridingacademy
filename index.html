@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>The Badass Riding Academy | Rider IQ Starter App</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="noise"></div>
+  <div class="shell" id="appShell">
+    <aside class="sidebar">
+      <div class="brand-stack">
+        <div class="brand-kicker">The Badass Smartass™</div>
+        <!-- Use whichever logo works best for your background (dark or light) -->
+        <img src="assets/riding-academy-dark.webp" alt="The Badass Riding Academy logo" class="brand-logo" />
+        <div class="division-card">
+          <span>Division</span>
+          <strong>Badass <em>on a</em> Budget™</strong>
+        </div>
+      </div>
+
+      <nav class="rail-nav" aria-label="Main navigation">
+        <button class="nav-item active" data-view="intro"><span>⌂</span>Start</button>
+        <button class="nav-item" data-view="assessment"><span>▣</span>Rider IQ <b id="navCount">15</b></button>
+        <button class="nav-item" data-view="results"><span>▥</span>My Score</button>
+        <button class="nav-item" data-view="roadmap"><span>◇</span>30-Day Plan</button>
+        <button class="nav-item" data-view="lesson"><span>▶</span>Free Lesson</button>
+        <!-- New pages to provide more background and ways to connect -->
+        <button class="nav-item" data-view="about"><span>ℹ</span>About</button>
+        <button class="nav-item" data-view="contact"><span>✉</span>Contact</button>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="bike-silhouette" aria-hidden="true"></div>
+        <p>Ride smarter.<br />Handle better.<br /><strong>Panic less.</strong></p>
+      </div>
+    </aside>
+
+    <main class="main-panel">
+      <header class="topbar">
+        <div>
+          <h1>The Badass Riding Academy™</h1>
+          <p>Rider IQ skills diagnostic · Free training starter</p>
+        </div>
+        <div class="trust-row" aria-label="Assessment benefits">
+          <div class="trust-pill"><span>🛡</span><b>Private</b><small>Your results stay with you.</small></div>
+          <div class="trust-pill"><span>◷</span><b>Fast</b><small>About 5 minutes.</small></div>
+          <div class="trust-pill"><span>◎</span><b>Focused</b><small>Find your weak spots.</small></div>
+        </div>
+      </header>
+
+      <!-- Intro / Landing -->
+      <section class="view active" id="introView">
+        <div class="hero-grid">
+          <div class="hero-copy panel-card">
+            <p class="red-label">Free Rider Skill Check</p>
+            <h2>Find the weak spot before the road does.</h2>
+            <p>The Badass Riding Academy starts with Rider IQ: a fast skills diagnostic that grades awareness, motorcycle readiness, low-speed control, emergency skills, and cornering control. You get a score, a recommended free lesson, and a 30-day practice plan without the usual safety-class wallpaper paste.</p>
+            <div class="hero-actions">
+              <button class="primary-btn" data-view="assessment">Take Rider IQ →</button>
+              <button class="ghost-btn" data-view="lesson">Open Free Lesson</button>
+              <button class="ghost-btn" data-view="roadmap">See 30-Day Plan</button>
+            </div>
+          </div>
+
+          <div class="rider-card panel-card">
+            <div class="score-ring" style="--score:78">
+              <div><span id="introScore">78</span><small>%</small></div>
+            </div>
+            <h3>Precision Rider</h3>
+            <p>Strong foundation. Sharp awareness. A few ugly little habits hiding in the corners, because apparently motorcycles still require skill.</p>
+            <div class="mini-bars">
+              <span><b style="--w:90%"></b></span>
+              <span><b style="--w:85%"></b></span>
+              <span><b style="--w:62%"></b></span>
+              <span><b style="--w:45%"></b></span>
+              <span><b style="--w:64%"></b></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="feature-strip">
+          <div><span>▤</span><b>Score Your Riding</b></div>
+          <div><span>⌁</span><b>Get A 30-Day Plan</b></div>
+          <div><span>◎</span><b>Practice Real Drills</b></div>
+          <div><span>▻</span><b>Unlock Free Training</b></div>
+          <div><span>↗</span><b>Build Repeatable Skill</b></div>
+        </div>
+
+        <div class="quick-path" aria-label="Recommended training path">
+          <article class="path-card panel-card">
+            <span>01</span>
+            <h3>Take Rider IQ</h3>
+            <p>Answer 15 practical riding questions and get a real skill snapshot.</p>
+            <button class="ghost-btn" data-view="assessment">Start Check</button>
+          </article>
+          <article class="path-card panel-card">
+            <span>02</span>
+            <h3>Fix The Weak Spot</h3>
+            <p>Use the free lesson to attack the control issue that usually gets ignored.</p>
+            <button class="ghost-btn" data-view="lesson">Open Lesson</button>
+          </article>
+          <article class="path-card panel-card">
+            <span>03</span>
+            <h3>Work The Plan</h3>
+            <p>Follow the 30-day roadmap so practice becomes a system, not a wish.</p>
+            <button class="ghost-btn" data-view="roadmap">View Plan</button>
+          </article>
+        </div>
+      </section>
+
+      <!-- Assessment -->
+      <section class="view" id="assessmentView">
+        <div class="assessment-layout">
+          <article class="question-panel panel-card">
+            <div class="question-meta">
+              <span id="levelLabel">Level 1 of 5</span>
+              <span id="progressLabel">1 of 15</span>
+            </div>
+            <div class="progress-blocks" id="progressBlocks" aria-label="Question progress"></div>
+            <p class="red-label" id="categoryLabel">Awareness & Strategy</p>
+            <h2 id="questionText">Question loads here.</h2>
+            <div class="question-art" aria-hidden="true">
+              <!-- Simple icon illustration for questions (can be replaced with your own art) -->
+              <svg viewBox="0 0 520 180" role="img">
+                <path d="M86 126c80-92 222-87 306-11" fill="none" stroke="currentColor" stroke-width="5" stroke-dasharray="10 12" opacity=".35"/>
+                <path d="M235 126c30-59 61-84 104-73" fill="none" stroke="#d51b1b" stroke-width="6" opacity=".9"/>
+                <circle cx="196" cy="132" r="11" fill="#bfc2c5"/>
+                <rect x="178" y="92" width="35" height="68" rx="10" fill="#bfc2c5" transform="rotate(-18 196 126)"/>
+                <rect x="318" y="72" width="30" height="64" rx="3" fill="none" stroke="#bfc2c5" stroke-width="6"/>
+                <path d="M333 51l24 44h-48z" fill="#bfc2c5"/>
+              </svg>
+            </div>
+            <div class="answer-grid" id="answerGrid"></div>
+            <p class="honesty-note">☼ Be honest. This is your roadmap, not your dating profile.</p>
+            <div class="question-actions">
+              <button class="ghost-btn" id="prevQuestion">← Previous</button>
+              <button class="primary-btn" id="nextQuestion">Continue →</button>
+            </div>
+          </article>
+
+          <aside class="live-panel panel-card">
+            <p class="red-label">Live Snapshot</p>
+            <h3 id="liveProfile">Not Scored Yet</h3>
+            <p id="liveText">Answer a few questions and the app will start building your rider profile.</p>
+            <div id="liveBars" class="skill-list compact"></div>
+          </aside>
+        </div>
+      </section>
+
+      <!-- Results -->
+      <section class="view" id="resultsView">
+        <div class="results-grid">
+          <section class="panel-card profile-panel">
+            <p class="red-label">Your Rider Profile</p>
+            <div class="profile-row">
+              <div>
+                <h2 id="profileTitle">Precision Rider</h2>
+                <p id="profileDescription">You have a solid foundation and strong awareness. Dial in your control and emergency skills to become harder to surprise.</p>
+              </div>
+              <div class="score-ring large" id="resultRing" style="--score:78"><div><span id="resultScore">78</span><small>%</small></div></div>
+            </div>
+          </section>
+
+          <section class="panel-card snapshot-panel">
+            <p class="red-label">Your Skill Snapshot</p>
+            <div class="skill-list" id="resultBars"></div>
+          </section>
+
+          <section class="panel-card opportunities-panel">
+            <p class="red-label">Your Top 3 Opportunities</p>
+            <div id="opportunityList" class="opportunity-list"></div>
+          </section>
+
+          <section class="panel-card next-step-panel">
+            <p class="red-label">Next Step</p>
+            <div class="lesson-card-mini">
+              <div class="play-box">▶</div>
+              <h3 id="nextLessonTitle">Master Full-Lock Turns</h3>
+              <p>Free starter lesson</p>
+              <button class="primary-btn" data-view="lesson">Start Lesson</button>
+            </div>
+          </section>
+        </div>
+        <div class="result-actions">
+          <button class="primary-btn" data-view="lesson">Start Recommended Lesson</button>
+          <button class="ghost-btn" data-view="roadmap">Start 30-Day Roadmap</button>
+          <button class="ghost-btn" id="resetDiagResults">Retake Rider IQ</button>
+        </div>
+      </section>
+
+      <!-- Roadmap -->
+      <section class="view" id="roadmapView">
+        <div class="roadmap-header panel-card">
+          <p class="red-label">30-Day Roadmap</p>
+          <h2>Your practice plan, minus the motivational poster nonsense.</h2>
+          <p>Three phases. Ten minutes a day. Built around the skills your Rider IQ score says need the most attention. Simple enough to follow, sharp enough to matter.</p>
+        </div>
+        <div class="roadmap-grid" id="roadmapGrid"></div>
+        <div class="roadmap-actions panel-card">
+          <div>
+            <p class="red-label">Ready For The Next Level?</p>
+            <h3>Ready For The Full Academy?</h3>
+            <p>Take the free plan into deeper video lessons, coaching calls, printable drills, progress badges, and rider-specific practice plans.</p>
+          </div>
+          <button class="primary-btn" data-view="contact">Request Full Course Info</button>
+        </div>
+      </section>
+
+      <!-- Lesson / Video page -->
+      <section class="view" id="lessonView">
+        <div class="lesson-hero-grid">
+          <div class="video-panel panel-card lesson-brand-panel">
+            <div class="video-frame">
+              <div class="play-button">▶</div>
+              <span>Free Lesson</span>
+              <h2>Full-Lock U-Turn Mastery</h2>
+            </div>
+          </div>
+
+          <article class="panel-card lesson-intro">
+            <p class="red-label">Lesson 01</p>
+            <h2>Stop Fighting the Bike. Learn to Control It.</h2>
+            <p>A full-lock U-turn is one of the cleanest ways to find out whether you actually control your motorcycle at low speed, or whether you are just negotiating with it and hoping nobody is watching.</p>
+            <p>This lesson teaches the control stack that makes tight U-turns work: clutch zone, steady throttle, rear brake drag, head and eyes, and commitment. No magic. No stunt-rider nonsense. No “just lean harder” advice from a guy who still drops his bike at gas pumps.</p>
+            <p><strong>This is slow-speed control built the right way.</strong></p>
+          </article>
+        </div>
+
+        <div class="lesson-cards" aria-label="Full-Lock U-Turn Mastery lesson sections">
+          <details class="lesson-card panel-card" open>
+            <summary><span>01</span><strong>What You’ll Learn</strong><em>The skill stack before the drill.</em></summary>
+            <div class="lesson-card-body">
+              <p>By the end of this lesson, you should understand how to hold the bike in the friction zone without jerking around, use light throttle to keep the engine pulling smoothly, drag the rear brake to stabilize the bike, turn your head and eyes before the bike turns, and commit to full lock without panic.</p>
+              <ul class="check-list">
+                <li>Hold steady throttle without chopping it.</li>
+                <li>Use the friction zone instead of treating the clutch like a light switch.</li>
+                <li>Drag the rear brake for stability in the tightest part of the turn.</li>
+                <li>Look through the turn instead of staring at the cone like it has legal authority.</li>
+              </ul>
+            </div>
+          </details>
+
+          <details class="lesson-card panel-card">
+            <summary><span>02</span><strong>Before You Start</strong><em>Setup matters. Gravity is not impressed by confidence.</em></summary>
+            <div class="lesson-card-body">
+              <p>Find a clean, empty parking lot. Not a busy gas station, not your gravel driveway, and not the Walmart parking lot on a Saturday unless your goal is to become local entertainment.</p>
+              <ul class="check-list">
+                <li>Use flat pavement with plenty of space.</li>
+                <li>Avoid traffic, curbs, pedestrians, loose gravel, wet paint, and oil spots.</li>
+                <li>Wear helmet, gloves, boots, and riding clothes.</li>
+                <li>Use cones, water bottles, or cheap markers. Fancy equipment is optional. Skill is not.</li>
+              </ul>
+              <div class="drill-scale">
+                <div><b>24 ft</b><small>Start here</small></div>
+                <div><b>22 ft</b><small>Clean it up</small></div>
+                <div><b>20 ft</b><small>Tighten</small></div>
+                <div><b>18 ft</b><small>Earn it</small></div>
+              </div>
+            </div>
+          </details>
+
+          <details class="lesson-card panel-card" open>
+            <summary><span>03</span><strong>The Control Triangle</strong><em>Clutch. Throttle. Rear brake. That’s the whole little circus.</em></summary>
+            <div class="lesson-card-body triangle-grid">
+              <article>
+                <h3>Clutch Zone</h3>
+                <p>The clutch is not an on/off switch. Hold it in the friction zone so power feeds smoothly to the rear wheel. Too much clutch out and the bike surges. Too much clutch in and the bike coasts and falls inward.</p>
+              </article>
+              <article>
+                <h3>Steady Throttle</h3>
+                <p>Hold a small, steady amount of throttle. Do not chop it. Do not stab it. The throttle gives the bike life. The clutch meters that life. The rear brake keeps it from acting stupid.</p>
+              </article>
+              <article>
+                <h3>Rear Brake Drag</h3>
+                <p>Use light rear brake pressure during the turn. The rear brake stabilizes the bike and controls speed without upsetting the front end. Front brake mid-turn is how drills become gravity demonstrations.</p>
+              </article>
+            </div>
+          </details>
+
+          <details class="lesson-card panel-card">
+            <summary><span>04</span><strong>The Full-Lock U-Turn Drill</strong><em>The part where you stop reading and do the work.</em></summary>
+            <div class="lesson-card-body">
+              <ol class="step-list">
+                <li><b>Approach slow.</b> Roll toward your turn point at walking speed. Shoulders loose, arms light.</li>
+                <li><b>Enter the friction zone.</b> Bring the clutch into smooth pull before the turn tightens.</li>
+                <li><b>Add light rear brake.</b> Stabilize the bike and control speed without killing momentum.</li>
+                <li><b>Turn your head early.</b> Look through the turn before the bike is fully leaned or turned.</li>
+                <li><b>Let the bars go to full lock.</b> Do not freeze halfway through and wonder why the turn got ugly.</li>
+                <li><b>Keep power smooth.</b> Use throttle, clutch, and rear brake together.</li>
+                <li><b>Exit clean.</b> Straighten the bars, ease off the rear brake, and roll out smoothly.</li>
+              </ol>
+              <p class="lesson-callout">Clean beats fast. Smooth beats dramatic. Repeatable beats lucky.</p>
+            </div>
+          </details>
+
+          <details class="lesson-card panel-card">
+            <summary><span>05</span><strong>Common Mistakes</strong><em>Because humans love making simple things weird.</em></summary>
+            <div class="lesson-card-body mistake-grid">
+              <div><h3>Looking Down</h3><p>Looking down kills the turn. Fix it by looking through the turn toward the exit.</p></div>
+              <div><h3>Using Front Brake</h3><p>Do not use the front brake during the tightest part of the U-turn. Control speed with clutch and rear brake.</p></div>
+              <div><h3>Coasting</h3><p>Coasting with the clutch pulled in removes drive from the rear wheel. Stay in the friction zone.</p></div>
+              <div><h3>Throttle Chopping</h3><p>Abrupt throttle makes the bike surge, dip, or wobble. Hold steady throttle and meter speed with clutch and rear brake.</p></div>
+              <div><h3>Starting Too Tight</h3><p>Trying to master full lock immediately is ego wearing a helmet. Start wide, get smooth, then shrink the space.</p></div>
+            </div>
+          </details>
+
+          <details class="lesson-card panel-card">
+            <summary><span>06</span><strong>Practice Standard</strong><em>How you know you are not just getting lucky.</em></summary>
+            <div class="lesson-card-body">
+              <p>You pass this lesson when you can complete the following without putting a foot down, grabbing front brake, chopping throttle, looking down, or stopping halfway through to reconsider your life choices.</p>
+              <ul class="check-list standard-list">
+                <li>3 clean full-lock U-turns to the left.</li>
+                <li>3 clean full-lock U-turns to the right.</li>
+                <li>No foot down.</li>
+                <li>No panic inputs.</li>
+                <li>No drama. The bike has enough of that already.</li>
+              </ul>
+            </div>
+          </details>
+
+          <details class="lesson-card panel-card tracker-card" open>
+            <summary><span>07</span><strong>Practice Tracker</strong><em>Keep it honest. The pavement already knows.</em></summary>
+            <div class="lesson-card-body">
+              <div class="tracker-grid">
+                <label>Left U-turns completed<input id="leftTurns" type="number" min="0" placeholder="0"></label>
+                <label>Right U-turns completed<input id="rightTurns" type="number" min="0" placeholder="0"></label>
+                <label>Foot-down count<input id="footDowns" type="number" min="0" placeholder="0"></label>
+                <label>Confidence score, 1–5<input id="confidenceScore" type="number" min="1" max="5" placeholder="1–5"></label>
+              </div>
+              <label class="wide-note">Biggest mistake today<textarea id="biggestMistake" rows="3" placeholder="Write the ugly truth here."></textarea></label>
+              <label class="wide-note">Fix for next session<textarea id="nextFix" rows="3" placeholder="One clean thing to improve next time."></textarea></label>
+              <div class="tracker-actions">
+                <button class="ghost-btn" id="clearPracticeTracker">Clear Tracker</button>
+              </div>
+            </div>
+          </details>
+        </div>
+
+        <div class="lesson-action-row panel-card">
+          <div>
+            <p class="red-label">Final Move</p>
+            <h3>Now go practice it until it gets boring.</h3>
+            <p>Boring means you are getting good. Shocking development, I know.</p>
+          </div>
+          <div class="lesson-action-buttons">
+            <button class="primary-btn" data-view="roadmap">Start 30-Day Roadmap</button>
+            <button class="ghost-btn" id="resetDiagLesson">Retake Rider IQ</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- About page -->
+      <section class="view" id="aboutView">
+        <article class="panel-card" style="padding: 32px; max-width: 900px; margin: 0 auto;">
+          <p class="red-label">About Us</p>
+          <h2>The Badass Riding Academy</h2>
+          <p>The Badass Riding Academy is a rider-improvement platform built for people who are past the beginner brochure and want practical, measurable skill. It starts with Rider IQ, a free diagnostic that turns vague confidence into a clear training path.</p>
+          <p>The promise is simple: sharper control, better awareness, cleaner habits, and less parking-lot foolishness. The free app proves the method. The full Academy can sell deeper courses, coaching, downloadable drills, and rider-specific progress plans.</p>
+          <p>This is not where riders come to be congratulated for owning a motorcycle. This is where good riders become harder to surprise.</p>
+        </article>
+      </section>
+
+      <!-- Contact page -->
+      <section class="view" id="contactView">
+        <article class="panel-card" style="padding: 32px; max-width: 900px; margin: 0 auto;">
+          <p class="red-label">Get in Touch</p>
+          <h2>Contact Us</h2>
+          <p>Want the full course, a coaching slot, or a branded version of this training funnel? Use the form below or email <a href="mailto:support@badasssmartass.com" class="link">support@badasssmartass.com</a>. The form is wired for prototype feedback; email is the real-world contact path until a backend is added.</p>
+          <form class="contact-form" onsubmit="event.preventDefault(); alert('Request saved in this prototype. Connect this form to email or a CRM before launch.');">
+            <div class="form-row">
+              <label>Your Name<br><input type="text" required placeholder="Your name" /></label>
+            </div>
+            <div class="form-row">
+              <label>Your Email<br><input type="email" required placeholder="you@example.com" /></label>
+            </div>
+            <div class="form-row">
+              <label>Your Message<br><textarea required rows="5" placeholder="What do you want to talk about?"></textarea></label>
+            </div>
+            <button type="submit" class="primary-btn">Request Course Info</button>
+          </form>
+        </article>
+      </section>
+
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
